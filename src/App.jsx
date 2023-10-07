@@ -12,6 +12,7 @@ import Spinner from "./assets/Components/Spinner"
 const App = () => {
 
   const [courses, setCourses] = useState(null);
+  const [category, setCateogry] = useState(filterData[0].title)
 
   useEffect ( () => {
     const fetchData = async() => {
@@ -32,7 +33,7 @@ const App = () => {
   
 
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col bg-blue-900'>
       
       <div>
         <Navbar/>
@@ -44,6 +45,8 @@ const App = () => {
         <div>
           <Filter
             filterData = {filterData}
+              category = {category}
+              setCateogry = {setCateogry}
           />
         </div>
      
@@ -55,6 +58,7 @@ const App = () => {
               <Spinner/>
               ) :(<Cards 
               courses={courses} 
+              category = {category}
             />)
           }
         </div>
